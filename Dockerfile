@@ -21,6 +21,9 @@ RUN set -ex && apk add --no-cache \
   tzdata \
   libxslt-dev libxml2-dev imagemagick libxml2-dev curl-dev
 
+RUN apk update
+RUN apk fetch openjdk8
+RUN apk add openjdk8
 # 7: Install node & testing packages - I separated these apart to share as many layers as possible
 # with inventory services' container image:
 RUN set -ex && apk add --no-cache \

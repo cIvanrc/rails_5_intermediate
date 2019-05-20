@@ -1,5 +1,15 @@
 version: '3.4'
 services:
+  solr:
+    image: solr
+    ports:
+     - "8983:8983"
+    volumes:
+      - .:/opt/solr/server/solr/mycores
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - mycore
   db:
     image:
       postgres
